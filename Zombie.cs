@@ -16,7 +16,7 @@ namespace ZombieSlayer
 
         Image img;
 
-        Image[] img_walking_r = { Image.FromFile("E:\\Advanced Programing\\Final Project game\\ZombieSlayer\\images\\Zombie\\movR1.png"), Image.FromFile("E:\\Advanced Programing\\Final Project game\\ZombieSlayer\\images\\Zombie\\movR2.png"), Image.FromFile("E:\\Advanced Programing\\Final Project game\\ZombieSlayer\\images\\Zombie\\movR3.png"), Image.FromFile("E:\\Advanced Programing\\Final Project game\\ZombieSlayer\\images\\Zombie\\movR4.png")};
+        Image[] img_walking_r = { Image.FromFile("C:\\Final Project game\\ZombieSlayer\\images\\Zombie\\movR1.png"), Image.FromFile("C:\\Final Project game\\ZombieSlayer\\images\\Zombie\\movR2.png"), Image.FromFile("C:\\Final Project game\\ZombieSlayer\\images\\Zombie\\movR3.png"), Image.FromFile("C:\\Final Project game\\ZombieSlayer\\images\\Zombie\\movR4.png") };
         int counter_wrl = 0;
 
         //Image[] img_walking_l = { Image.FromFile("images/gunman_wl1.png"), Image.FromFile("images/gunman_wl2.png"), Image.FromFile("images/gunman_wl3.png") };

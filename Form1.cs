@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
+using System.IO;
 
 namespace ZombieSlayer
 {
@@ -9,16 +10,17 @@ namespace ZombieSlayer
 
     public partial class Form1 : Form
     {
-        Image[] map = { Image.FromFile("E:\\Advanced Programing\\Final Project game\\ZombieSlayer\\images\\map\\map1.png"), Image.FromFile("E:\\Advanced Programing\\Final Project game\\ZombieSlayer\\images\\map\\map1_1.png"), Image.FromFile("E:\\Advanced Programing\\Final Project game\\ZombieSlayer\\images\\map\\map2.png"), Image.FromFile("E:\\Advanced Programing\\Final Project game\\ZombieSlayer\\images\\map\\map2_1.png"), Image.FromFile("E:\\Advanced Programing\\Final Project game\\ZombieSlayer\\images\\map\\map3.png"), Image.FromFile("E:\\Advanced Programing\\Final Project game\\ZombieSlayer\\images\\map\\map3_1.png"), Image.FromFile("E:\\Advanced Programing\\Final Project game\\ZombieSlayer\\images\\map\\map3_2.png"), Image.FromFile("E:\\Advanced Programing\\Final Project game\\ZombieSlayer\\images\\map\\map3_3.png") };
-        Image mageR = Image.FromFile("E:\\Advanced Programing\\Final Project game\\ZombieSlayer\\images\\mage_R\\idle_1.png");
-        Image mageL = Image.FromFile("E:\\Advanced Programing\\Final Project game\\ZombieSlayer\\images\\mage_L\\idle_1.png");
-        Image[] mage_R = { Image.FromFile("E:\\Advanced Programing\\Final Project game\\ZombieSlayer\\images\\mage_R\\walk_1.png"), Image.FromFile("E:\\Advanced Programing\\Final Project game\\ZombieSlayer\\images\\mage_R\\walk_2.png"), Image.FromFile("E:\\Advanced Programing\\Final Project game\\ZombieSlayer\\images\\mage_R\\walk_3.png"), Image.FromFile("E:\\Advanced Programing\\Final Project game\\ZombieSlayer\\images\\mage_R\\walk_4.png") };
-        Image[] mage_L = { Image.FromFile("E:\\Advanced Programing\\Final Project game\\ZombieSlayer\\images\\mage_L\\walk_1.png"), Image.FromFile("E:\\Advanced Programing\\Final Project game\\ZombieSlayer\\images\\mage_L\\walk_2.png"), Image.FromFile("E:\\Advanced Programing\\Final Project game\\ZombieSlayer\\images\\mage_L\\walk_3.png"), Image.FromFile("E:\\Advanced Programing\\Final Project game\\ZombieSlayer\\images\\mage_L\\walk_4.png") };
-        Image[] mage_run_L = { Image.FromFile("E:\\Advanced Programing\\Final Project game\\ZombieSlayer\\images\\mage_L\\run_1.png"), Image.FromFile("E:\\Advanced Programing\\Final Project game\\ZombieSlayer\\images\\mage_L\\run_2.png"), Image.FromFile("E:\\Advanced Programing\\Final Project game\\ZombieSlayer\\images\\mage_L\\run_3.png"), Image.FromFile("E:\\Advanced Programing\\Final Project game\\ZombieSlayer\\images\\mage_L\\run_4.png"), Image.FromFile("E:\\Advanced Programing\\Final Project game\\ZombieSlayer\\images\\mage_L\\run_5.png"), Image.FromFile("E:\\Advanced Programing\\Final Project game\\ZombieSlayer\\images\\mage_L\\run_6.png"), Image.FromFile("E:\\Advanced Programing\\Final Project game\\ZombieSlayer\\images\\mage_L\\run_7.png"), Image.FromFile("E:\\Advanced Programing\\Final Project game\\ZombieSlayer\\images\\mage_L\\run_8.png") };
-        Image[] mage_run_R = { Image.FromFile("E:\\Advanced Programing\\Final Project game\\ZombieSlayer\\images\\mage_R\\run_1.png"), Image.FromFile("E:\\Advanced Programing\\Final Project game\\ZombieSlayer\\images\\mage_R\\run_2.png"), Image.FromFile("E:\\Advanced Programing\\Final Project game\\ZombieSlayer\\images\\mage_R\\run_3.png"), Image.FromFile("E:\\Advanced Programing\\Final Project game\\ZombieSlayer\\images\\mage_R\\run_4.png"), Image.FromFile("E:\\Advanced Programing\\Final Project game\\ZombieSlayer\\images\\mage_R\\run_5.png"), Image.FromFile("E:\\Advanced Programing\\Final Project game\\ZombieSlayer\\images\\mage_R\\run_6.png"), Image.FromFile("E:\\Advanced Programing\\Final Project game\\ZombieSlayer\\images\\mage_R\\run_7.png"), Image.FromFile("E:\\Advanced Programing\\Final Project game\\ZombieSlayer\\images\\mage_R\\run_8.png") };
-        Image[] mage_atk_L = { Image.FromFile("E:\\Advanced Programing\\Final Project game\\ZombieSlayer\\images\\mage_L\\A-1.png"), Image.FromFile("E:\\Advanced Programing\\Final Project game\\ZombieSlayer\\images\\mage_L\\A-2.png"), Image.FromFile("E:\\Advanced Programing\\Final Project game\\ZombieSlayer\\images\\mage_L\\A-3.png"), Image.FromFile("E:\\Advanced Programing\\Final Project game\\ZombieSlayer\\images\\mage_L\\A-4.png"), Image.FromFile("E:\\Advanced Programing\\Final Project game\\ZombieSlayer\\images\\mage_L\\A-5.png"), Image.FromFile("E:\\Advanced Programing\\Final Project game\\ZombieSlayer\\images\\mage_L\\A-6.png"), Image.FromFile("E:\\Advanced Programing\\Final Project game\\ZombieSlayer\\images\\mage_L\\A-7.png"), Image.FromFile("E:\\Advanced Programing\\Final Project game\\ZombieSlayer\\images\\mage_L\\A-8.png") };
-        Image[] mage_atk_R = { Image.FromFile("E:\\Advanced Programing\\Final Project game\\ZombieSlayer\\images\\mage_R\\A-1.png"), Image.FromFile("E:\\Advanced Programing\\Final Project game\\ZombieSlayer\\images\\mage_R\\A-2.png"), Image.FromFile("E:\\Advanced Programing\\Final Project game\\ZombieSlayer\\images\\mage_R\\A-3.png"), Image.FromFile("E:\\Advanced Programing\\Final Project game\\ZombieSlayer\\images\\mage_R\\A-4.png"), Image.FromFile("E:\\Advanced Programing\\Final Project game\\ZombieSlayer\\images\\mage_R\\A-5.png"), Image.FromFile("E:\\Advanced Programing\\Final Project game\\ZombieSlayer\\images\\mage_R\\A-6.png"), Image.FromFile("E:\\Advanced Programing\\Final Project game\\ZombieSlayer\\images\\mage_R\\A-7.png"), Image.FromFile("E:\\Advanced Programing\\Final Project game\\ZombieSlayer\\images\\mage_R\\A-8.png") };
-        //Image[] zombie_R = { Image.FromFile("E:\\Advanced Programing\\Final Project game\\ZombieSlayer\\images\\Zombie\\MovR1.png"), Image.FromFile("E:\\Advanced Programing\\Final Project game\\ZombieSlayer\\images\\Zombie\\MovR2.png"), Image.FromFile("E:\\Advanced Programing\\Final Project game\\ZombieSlayer\\images\\Zombie\\MovR3.png"), Image.FromFile("E:\\Advanced Programing\\Final Project game\\ZombieSlayer\\images\\Zombie\\MovR4.png"), Image.FromFile("E:\\Advanced Programing\\Final Project game\\ZombieSlayer\\images\\Zombie\\MovR5.png"), Image.FromFile("E:\\Advanced Programing\\Final Project game\\ZombieSlayer\\images\\Zombie\\MovR6.png") };
+        string dir = Directory.GetCurrentDirectory();
+        
+        Image[] map = { Image.FromFile("images\\map\\map1.png"), Image.FromFile("images\\map\\map1_1.png"), Image.FromFile("images\\map\\map2.png"), Image.FromFile("images\\map\\map2_1.png"), Image.FromFile("images\\map\\map3.png"), Image.FromFile("images\\map\\map3_1.png"), Image.FromFile("images\\map\\map3_2.png"), Image.FromFile("images\\map\\map3_3.png") };
+        Image mageR = Image.FromFile("images\\mage_R\\idle_1.png");
+        Image mageL = Image.FromFile("images\\mage_L\\idle_1.png");
+        Image[] mage_R = { Image.FromFile("images\\mage_R\\walk_1.png"), Image.FromFile("images\\mage_R\\walk_2.png"), Image.FromFile("images\\mage_R\\walk_3.png"), Image.FromFile("images\\mage_R\\walk_4.png") };
+        Image[] mage_L = { Image.FromFile("images\\mage_L\\walk_1.png"), Image.FromFile("images\\mage_L\\walk_2.png"), Image.FromFile("images\\mage_L\\walk_3.png"), Image.FromFile("images\\mage_L\\walk_4.png") };
+        Image[] mage_run_L = { Image.FromFile("images\\mage_L\\run_1.png"), Image.FromFile("images\\mage_L\\run_2.png"), Image.FromFile("images\\mage_L\\run_3.png"), Image.FromFile("images\\mage_L\\run_4.png"), Image.FromFile("images\\mage_L\\run_5.png"), Image.FromFile("images\\mage_L\\run_6.png"), Image.FromFile("images\\mage_L\\run_7.png"), Image.FromFile("images\\mage_L\\run_8.png") };
+        Image[] mage_run_R = { Image.FromFile("images\\mage_R\\run_1.png"), Image.FromFile("images\\mage_R\\run_2.png"), Image.FromFile("images\\mage_R\\run_3.png"), Image.FromFile("images\\mage_R\\run_4.png"), Image.FromFile("images\\mage_R\\run_5.png"), Image.FromFile("images\\mage_R\\run_6.png"), Image.FromFile("images\\mage_R\\run_7.png"), Image.FromFile("images\\mage_R\\run_8.png") };
+        Image[] mage_atk_L = { Image.FromFile("images\\mage_L\\A-1.png"), Image.FromFile("images\\mage_L\\A-2.png"), Image.FromFile("images\\mage_L\\A-3.png"), Image.FromFile("images\\mage_L\\A-4.png"), Image.FromFile("images\\mage_L\\A-5.png"), Image.FromFile("images\\mage_L\\A-6.png"), Image.FromFile("images\\mage_L\\A-7.png"), Image.FromFile("images\\mage_L\\A-8.png") };
+        Image[] mage_atk_R = { Image.FromFile("images\\mage_R\\A-1.png"), Image.FromFile("images\\mage_R\\A-2.png"), Image.FromFile("images\\mage_R\\A-3.png"), Image.FromFile("images\\mage_R\\A-4.png"), Image.FromFile("images\\mage_R\\A-5.png"), Image.FromFile("images\\mage_R\\A-6.png"), Image.FromFile("images\\mage_R\\A-7.png"), Image.FromFile("images\\mage_R\\A-8.png") };
 
         int mage_walk_counter = 0;
         int mage_run_counter = 0;
@@ -59,6 +61,7 @@ namespace ZombieSlayer
         {
             InitializeComponent();
             InitGfx();
+            
         }
 
         private void Form1_Paint(object sender, PaintEventArgs e)
@@ -413,6 +416,8 @@ namespace ZombieSlayer
         private void Form1_MouseDown(object sender, MouseEventArgs e)
         {
             attack = true;
+            Console.WriteLine(dir);
+            Console.WriteLine("here");
         }
 
         private void Form1_MouseUp(object sender, MouseEventArgs e)
