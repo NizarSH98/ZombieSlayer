@@ -9,7 +9,7 @@ namespace ZombieSlayer
 
     public partial class Form1 : Form
     {
-        Image[] map = { Image.FromFile("E:\\Advanced Programing\\Final Project game\\ZombieSlayer\\images\\map\\map1.png") };
+        Image[] map = { Image.FromFile("E:\\Advanced Programing\\Final Project game\\ZombieSlayer\\images\\map\\map1.png"), Image.FromFile("E:\\Advanced Programing\\Final Project game\\ZombieSlayer\\images\\map\\map1_1.png"), Image.FromFile("E:\\Advanced Programing\\Final Project game\\ZombieSlayer\\images\\map\\map2.png"), Image.FromFile("E:\\Advanced Programing\\Final Project game\\ZombieSlayer\\images\\map\\map2_1.png"), Image.FromFile("E:\\Advanced Programing\\Final Project game\\ZombieSlayer\\images\\map\\map3.png"), Image.FromFile("E:\\Advanced Programing\\Final Project game\\ZombieSlayer\\images\\map\\map3_1.png"), Image.FromFile("E:\\Advanced Programing\\Final Project game\\ZombieSlayer\\images\\map\\map3_2.png"), Image.FromFile("E:\\Advanced Programing\\Final Project game\\ZombieSlayer\\images\\map\\map3_3.png") };
         Image mageR = Image.FromFile("E:\\Advanced Programing\\Final Project game\\ZombieSlayer\\images\\mage_R\\idle_1.png");
         Image mageL = Image.FromFile("E:\\Advanced Programing\\Final Project game\\ZombieSlayer\\images\\mage_L\\idle_1.png");
         Image[] mage_R = { Image.FromFile("E:\\Advanced Programing\\Final Project game\\ZombieSlayer\\images\\mage_R\\walk_1.png"), Image.FromFile("E:\\Advanced Programing\\Final Project game\\ZombieSlayer\\images\\mage_R\\walk_2.png"), Image.FromFile("E:\\Advanced Programing\\Final Project game\\ZombieSlayer\\images\\mage_R\\walk_3.png"), Image.FromFile("E:\\Advanced Programing\\Final Project game\\ZombieSlayer\\images\\mage_R\\walk_4.png") };
@@ -37,6 +37,7 @@ namespace ZombieSlayer
         int map_y;
         int map_w;
         int map_h;
+        int mapI = 0;
 
         int Z_x;
         int Z_y;
@@ -65,7 +66,7 @@ namespace ZombieSlayer
             
             Graphics g = e.Graphics;
 
-            g.DrawImage(map[0], map_x, map_y, map_w, map_h);
+            g.DrawImage(map[mapI], map_x, map_y, map_w, map_h);
             if (i > 5)
                 i = 0;
             //g.DrawImage(zombie_R[i ++], map_x, map_y, mage_w, mage_h);
@@ -162,6 +163,7 @@ namespace ZombieSlayer
             }
             
             sama7.draw(g,Z_x,Z_y,mage_h,mage_w,count);
+            g.DrawImage(map[mapI+1], map_x, map_y, map_w, map_h);
         }
         private void InitGfx()
         {
@@ -188,6 +190,18 @@ namespace ZombieSlayer
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            if(mage_x>((12/15)*screen_w) && mage_y < 20 && mapI==0)
+            {
+                mapI = 2;
+                mage_x = 10;
+                mage_y = 265;
+            }
+            if (mage_x > ((12 / 15) * screen_w) && mage_y < 20 && mapI == 2)
+            {
+                mapI = 4;
+                
+                mage_y = screen_h-mage_h;
+            }
             if (Z_x > mage_x)
                 Z_x -= 2;
             if (Z_x < mage_x)
